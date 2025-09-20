@@ -1,0 +1,4 @@
+cd .venv/scripts/
+activate.ps1
+cd c:\users\user\desktop\txt\google-sheets-project\
+python server.py

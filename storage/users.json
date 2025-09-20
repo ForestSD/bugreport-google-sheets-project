@@ -1,0 +1,16 @@
+{
+  "454655593": {
+    "credentials": {
+      "email": "vinnyk.a@netronic.net",
+      "password": "7355567a",
+      "savedAt": "2025-09-20T07:46:54.470Z"
+    },
+    "projects": {
+      "project_1758354512681": {
+        "name": "LTO 2.0",
+        "url": "https://netronic.worksection.com/project/383542/17689010/new/"
+      }
+    },
+    "selectedProject": "project_1758354512681"
+  }
+}
