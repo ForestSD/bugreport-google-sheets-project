@@ -40,4 +40,4 @@ bot.on("polling_error", (error) => {
   console.error("Ошибка polling:", error);
 });
 
-console.log("✅ Bug Report Telegram Bot запущен!");
+console.log("Bug Report Telegram Bot запущен!");
