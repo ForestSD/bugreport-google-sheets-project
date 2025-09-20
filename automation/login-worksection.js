@@ -49,7 +49,7 @@ async function loginToWorksection(email, password, projectUrl, bugsJson) {
       await createBug(newPage, bugs[i]);
     }
 
-    console.log("✅ Все баги обработаны!");
+    console.log("Все баги обработаны!");
   } catch (error) {
     console.error("Ошибка в loginToWorksection:", error.message);
   }
