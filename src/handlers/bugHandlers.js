@@ -1,3 +1,5 @@
+// Bug Handlers - основная логика обработки багрепортов
+
 const Sheets = require("../api/sheets");
 const Validation = require("../services/validation");
 const userStorage = require("../services/userStorage");
@@ -8,11 +10,9 @@ const { BASE_PROMPT } = require("../config/prompt");
 
 class BugHandlers {
   constructor() {
-    // Инициализируем хранилище
     userStorage.initStorage();
   }
 
-  // Инициализация пользователя
   async initializeUser(userId) {
     const credentials = await userStorage.getCredentials(userId);
 

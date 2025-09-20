@@ -1,3 +1,5 @@
+// Telegram Handlers - обработка событий Telegram Bot API
+
 const bugHandlers = require("./bugHandlers");
 const InlineKeyboards = require("../keyboards/inlineKeyboards");
 const ProjectManager = require("../services/projectManager");
@@ -5,11 +7,9 @@ const userStorage = require("../services/userStorage");
 
 class TelegramHandlers {
   constructor() {
-    // Храним состояния пользователей
     this.userStates = new Map();
   }
 
-  // Получить состояние пользователя
   getUserState(userId) {
     return this.userStates.get(userId) || { step: "idle" };
   }

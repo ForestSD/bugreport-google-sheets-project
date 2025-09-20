@@ -1,12 +1,13 @@
+// Telegram Bot - точка входа приложения
+
 require("dotenv").config();
 const TelegramBot = require("node-telegram-bot-api");
 const telegramHandlers = require("./src/handlers/telegramHandlers");
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
 
-console.log("🤖 Bug Report Telegram Bot запускается...");
+console.log("Bug Report Bot запускается...");
 
-// Регистрация команд
 bot.onText(/\/start/, (msg) => telegramHandlers.startCommand(bot, msg));
 bot.onText(/\/setcredentials/, (msg) =>
   telegramHandlers.setCredentialsCommand(bot, msg)
@@ -16,9 +17,7 @@ bot.onText(/\/addproject/, (msg) =>
 );
 bot.onText(/\/projects/, (msg) => telegramHandlers.projectsCommand(bot, msg));
 
-// Обработка текстовых сообщений
 bot.on("message", (msg) => {
-  // Игнорируем команды, они обрабатываются отдельно
   if (!msg.text?.startsWith("/")) {
     console.log(
       `📨 Получено сообщение от пользователя ${msg.from.id}: "${msg.text}"`

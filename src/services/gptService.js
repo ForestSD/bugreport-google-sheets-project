@@ -1,34 +1,25 @@
+// GPT Service - обработка текста через различные провайдеры
+
 const axios = require("axios");
 const config = require("../config/config");
 const { BASE_PROMPT, LLAMA_PROMPT } = require("../config/prompt");
 
-// Пробуем подключить g4f для бесплатного доступа (новый API)
 let g4fClient;
 try {
   const g4fModule = require("g4f");
-  // Пробуем новый API клиент
   if (g4fModule.Client) {
     g4fClient = new g4fModule.Client();
-    console.log("✅ g4f новый клиент загружен успешно");
   } else if (g4fModule.G4F) {
-    // Fallback на старый API
     g4fClient = new g4fModule.G4F();
-    console.log("✅ g4f старый API загружен успешно");
-  } else {
-    console.log("❌ g4f API не найден");
   }
 } catch (error) {
-  console.log(
-    "❌ g4f не установлен, будет использоваться только OpenAI API или заглушка"
-  );
+  console.log("g4f не установлен, используем альтернативные провайдеры");
 }
 
-// Пробуем подключить Ollama для локальных Llama моделей
 let ollama;
 try {
   const ollamaModule = require("ollama");
-  ollama = ollamaModule.default; // используем default export
-  console.log("✅ Ollama загружен успешно");
+  ollama = ollamaModule.default;
 } catch (error) {
   console.log("❌ Ollama не установлен");
 }

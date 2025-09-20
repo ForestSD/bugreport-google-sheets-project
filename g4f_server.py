@@ -1,23 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-G4F Python сервер для Node.js бота
-Этот сервер предоставляет HTTP API для доступа к g4f из Node.js
-"""
+# G4F Server - HTTP API для обработки текста через G4F провайдеры
 
 from flask import Flask, request, jsonify
 import g4f
 import traceback
 import logging
 
-# Настройка логирования
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
-# Список провайдеров для попыток (проверенные рабочие)
 PROVIDERS = [
     g4f.Provider.Bing,
     g4f.Provider.You,
